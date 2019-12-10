@@ -6,48 +6,29 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: salmon;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-ul {
-  width: 50%;
-  text-align: left;
-  list-style: none;
-  padding: 2vw;
-}
-
-li {
-  color: #fff;
-  font-size: 20px;
-  padding: 2px;
-  border: 1px solid #fff;
-  text-transform: uppercase;
+body {
+  background: whitesmoke;
+  width: 80%;
+  margin: auto;
+  font-family: arial;
 }
 
 input {
-  padding: 5%;
-  border: 0;
-  outline: 0;
+  border: 1px solid black;
+  height: 20px;
   text-indent: 10px; 
 }
 
 button {
   box-sizing: border-box;
-  background-color: white;
+  background-color: salmon;
   cursor: pointer;
   border-radius: 10px;
+  border: 1px solid black;
   font-size: 20px;
+  height: 25px;
+  padding: 2%;
   line-height: 1;
-  margin: 20px;
-  padding: 5%;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;

@@ -1,53 +1,34 @@
-export const initialState = {
-    todos: [
-        {
-            todo: 'Learn about reducers',
-            completed: false,
-            id: Date.now
-          },
-          {
-            todo: 'Learn about redux',
-            completed: false,
-            id: Date.now
-          },
-          {
-            todo: 'Learn python',
-            completed: false,
-            id: Date.now
-          }
-    ]
-}
-  export const todoReducer = (state =[], action) => {
-      switch (action.type) {
-         case "ADD_TODO":
-             return { ...state, 
+export const initialState = 
+[
+    {
+    item: 'Learn about reducers',
+    completed: false,
+    id: Date.now(),
+    }
+]
 
-                todos: [
-                    ...state.todos,
-                    {
-                        id: Date.now,
-                        todo: action.text,
-                        completed: false
-                      }
-                ]
-             };
-
-        case "TOGGLE_COMPLETE":
-            return { ...state, 
-                todos: state.todos.map( todo =>
-                    todo.id === action.id ? {
-                        ...todo,
-                        completed: !todo.completed
-                    } : todo.id)
-            };
-
-            case 'CLEAR_COMPLETED' : 
-                return {
-                    ...state,
-                    todos: state.todos.filter(todo => !todo.completed)
+export const reducer = (state, action) => {
+    switch(action.type) {
+        case 'ADD_TODO':
+                const newItem = {
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now()
                 };
+            return [...state, newItem];
 
-        default:
+        case 'TOGGLE_COMPLETED':
+            return state.map(todo => {
+                if(todo.id === action.payload) {
+                    return { ...todo, completed: !todo.completed }
+                } else {
+                    return todo
+                }
+            });
+            
+        case 'CLEAR_COMPLETED':
+            return state.filter(todo => !todo.completed)
+        default: 
             return state;
-      }
-  }; 
+    }
+} 
